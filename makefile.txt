@@ -1,0 +1,21 @@
+INPUTFILE=input.txt
+OUTPUTFILE=output.txt 
+JFLAGS = -g
+JC = javac
+RM=rm
+VI=vi
+JVM=java
+MAIN = assignmentP2
+.SUFFIXES: .java .class
+.java.class:
+	$(JC) $*.java
+	$(JVM) $(MAIN) $(INPUTFILE) $(OUTPUTFILE)
+	$(RM) $(MAIN).class
+	$(VI) $(OUTPUTFILE)
+
+CLASSES = \
+	assignmentP2.java \
+
+classes: $(CLASSES:.java=.class)
+
+default : classes
